@@ -1,0 +1,190 @@
+.email-confirmation-bg{
+/*  background: rgb(2,0,36);
+  background: linear-gradient(140deg, rgba(2,0,36,1) 0%, rgba(0,90,151,1) 35%, rgba(148,189,229,1) 100%);*/
+  background: rgb(255,242,198);
+  background: linear-gradient(140deg, rgba(255,242,198,1) 0%, rgba(246,247,176,1) 17%, rgba(253,185,28,1) 100%);
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+}
+
+.jumbotron.vertical-center {
+  margin-bottom: 0; /* Remove the default bottom margin of .jumbotron */
+}
+.status-text{
+}
+.icon-status{
+  width: 15rem;
+  height: 15rem;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.icon-success{
+  color: limegreen;
+}
+
+.icon-danger{
+  color: #e53935;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for vh unit */
+  min-height: 100vh; /* You might also want to use
+                        'height' property instead.
+
+                        Note that for percentage values of
+                        'height' or 'min-height' properties,
+                        the 'height' of the parent element
+                        should be specified explicitly.
+
+                        In this case the parent of '.vertical-center'
+                        is the <body> element */
+
+  /* Make it a flex container */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  /* Align the bootstrap's container vertically */
+  -webkit-box-align : center;
+  -webkit-align-items : center;
+  -moz-box-align : center;
+  -ms-flex-align : center;
+  align-items : center;
+
+  /* In legacy web browsers such as Firefox 9
+     we need to specify the width of the flex container */
+  width: 100%;
+
+  /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
+     hence the bootstrap's container won't be aligned to the center anymore.
+
+     Therefore, we should use the following declarations to get it centered again */
+  -webkit-box-pack : center;
+  -moz-box-pack : center;
+  -ms-flex-pack : center;
+  -webkit-justify-content : center;
+  justify-content : center;
+}
+
+.email-container {
+  background-color: white;
+  border-radius: 20px;
+  width:35vw;
+}
+
+.envelope{
+  height: 20vh;
+}
+
+.container-envelope {
+  background-color: #005A97;
+  width:180px;
+  height:20vh;
+  border-radius:50%;
+  display:flex;
+  align-self: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.envelope {
+  position: relative;
+  align-self: center;
+  margin: 0 auto;
+  width: 100px;
+  height: 75px;
+  background-color: #94BDE5;
+}
+
+.container-envelope:hover {
+  cursor: pointer;
+}
+
+.container-envelope:hover .moves {
+  transform: rotateX(180deg) translateY(50px);
+  -webkit-transform: rotateX(180deg) translateY(50px);
+  -ms-transform: rotateX(180deg) translateY(50px);
+  transition: .001s 0s;
+}
+
+.container-envelope:hover .letter {
+  z-index:40;
+  transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+
+}
+
+.envelope-front {
+  width: 100px;
+  height: 75px;
+  background-color: #94BDE5;
+  position: absolute;
+  z-index:50;
+  -webkit-clip-path: polygon(50% 55%, 100% 1%, 100% 100%, 0 100%, 0 0);
+  clip-path: polygon(50% 55%, 100% 1%, 100% 100%, 0 100%, 0 0);
+}
+
+.envelope-flap {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 50px solid #6393BF;
+  position: absolute;
+}
+
+.envelope-flap.moves {
+  z-index:30;
+  transition: .001s .45s;
+}
+
+.letter {
+  height:60px;
+  width:75px;
+  display:block;
+  background-color:#ffffff;
+  position:absolute;
+  left:12.5px;
+  z-index:20;
+  transition: all .5s ease-in-out;
+}
+
+.login-redirect-btn{
+  margin-top: 30px;
+}
+
+.email-confirm-description{
+  margin-top: 30px;
+}
+.lg-field{
+  width: 28rem;
+  height: 4rem;
+}
+
+@media (max-width: 1400px) {
+  .email-container{
+    width: 50vw;
+  }
+}
+
+@media (max-width: 1000px) {
+  .email-container{
+    width: 65vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .email-container{
+    width: 80vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .email-container{
+    width: 90vw;
+  }
+}

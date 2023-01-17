@@ -1,0 +1,44 @@
+.register-form{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.note-textarea{
+    border : 1px solid rgb(211, 201, 201);
+    border-radius: 4px;
+    height: 50px;
+    width:100%;
+}
+ ::placeholder {
+    position: absolute;
+    top: 15px;
+    background-color: white;
+    color: #6F7280 !important;
+    padding: 0 20px;
+  }
+
+  .fileupload1, .fileupload2{
+      padding-top:34px;
+  }
+
+  .fileupload3{
+      margin-top:15px;
+      padding-top:34px;
+  }
+
+  .logo{
+        top: 23%;
+        position: relative;
+      
+  }
+  
+  .select-area{
+    margin-top:50px;
+    height: 50px;
+  }
+  
+  .lobbyorg-register{
+    //flex flex-col flex-auto p-16 sm:p-24 md:flex-row md:p-0 overflow-hidden
+    display: flex;
+    overflow: hidden;
+  }
+  

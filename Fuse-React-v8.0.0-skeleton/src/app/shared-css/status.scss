@@ -1,0 +1,31 @@
+.status_main_div{
+  display: flex;
+  justify-content: center;
+}
+.status_values{
+  padding: 5px 10px;
+  text-align: center;
+  color: white;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.status_awaiting_confirmation{
+  background: #449fdb;
+}
+
+.status_registered{
+  background: forestgreen;
+}
+
+.status_confirmed{
+  background: #746ab8;
+}
+
+.status_denied{
+  background: red;
+}
+
+.status_returned{
+  background: rgb(255, 230, 0);
+}

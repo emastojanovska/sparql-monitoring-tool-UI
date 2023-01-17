@@ -1,0 +1,31 @@
+.modal_main_div {
+  position: fixed;
+  z-index: 1300;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+}
+
+.modal_secondary_div {
+  background: white;
+  width: 600px;
+  height: 150px;
+  border: 2px solid #000;
+}
+
+.flex_position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_inputs{
+  margin-top: 15px;
+  justify-content: space-around;
+}
+
+.modal_buttons{
+  margin-top: 15px;
+  gap: 15px;
+}
