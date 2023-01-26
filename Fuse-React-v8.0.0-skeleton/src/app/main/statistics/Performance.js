@@ -57,7 +57,6 @@ const Performance = () => {
     useEffect(()=> {
         getQueryTypes()
         getEndpointQueries()
-        console.log("DATA ROWS", dataRows)
     }, [])
 
     const headerRows = [
@@ -136,15 +135,13 @@ const Performance = () => {
     const getQueryTypes = () =>{
         QueryRepository.getAllResponseTimes()
             .then(res => {setQueryTypes(res.data)
-        console.log("Query Types", res.data)})
-
+        })
     }
 
     const getEndpointQueries = () => {
         QueryRepository.getAllByEndpoint()
             .then(res => {
                 setEndpointQueries(res.data)
-                console.log("Endpoint queries", res.data)
             })
     }
     return(

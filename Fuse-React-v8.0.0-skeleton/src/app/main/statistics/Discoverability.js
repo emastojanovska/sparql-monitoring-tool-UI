@@ -97,7 +97,6 @@ const Discoverability = ({endpointsList, noVoid, hasVoid}) => {
         }
     }
     const dataRows = endpointsList.map(endpoint => {
-        console.log("ENDPOINT", endpoint)
         return{
             id: endpoint.id,
             values: [

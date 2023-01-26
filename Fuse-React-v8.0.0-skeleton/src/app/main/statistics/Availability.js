@@ -1,17 +1,13 @@
-import { styled, useTheme} from '@mui/material/styles';
-import {  connect ,useDispatch, useSelector} from 'react-redux';
+import { useTheme} from '@mui/material/styles';
+import {  connect , useSelector} from 'react-redux';
 import ReactApexChart from 'react-apexcharts';
 import {selectContrastMainTheme} from "app/store/fuse/settingsSlice";
-import {useEffect} from "react";
 import PageTable from "app/shared-components/table/PageTable";
 
 const Availability = ({endpointsList}) => {
     const theme = useTheme();
-    const dispatch = useDispatch();
     const contrastTheme = useSelector(selectContrastMainTheme(theme.palette.primary.main));
-   useEffect(() => {
-       console.log("hi", endpointsList)
-   }, [])
+
     const options = {
         chart: {
             fontFamily: 'inherit',

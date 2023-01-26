@@ -82,7 +82,7 @@ export const updateUserData = (user) => async (dispatch, getState) => {
 };
 
 const initialState = {
-  role: [], // guest
+  role: ['admin'],
   data: {
     displayName: 'John Doe',
     photoURL: 'assets/images/avatars/brian-hughes.jpg',

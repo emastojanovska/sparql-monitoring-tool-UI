@@ -11,6 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import { withStyles } from '@material-ui/core/styles';
 import EndpointRepository from '../../repository/EndpointRepository';
 import Chip from "@mui/material/Chip";
+import {useNavigate} from "react-router-dom";
 
 const BorderLinearProgress = withStyles((theme) => ({
   root: {
@@ -29,28 +30,31 @@ const VoidStatistics = ({ endpoint }) => {
   const [rowResults, setRowResults] = useState([]);
   const fileDownload = require('js-file-download');
   const [mime, setMime] = useState('rdf');
+  const navigate = useNavigate()
   const options = [
     { value: 'rdf', label: 'RDF/XML' },
     { value: 'ttl', label: 'TTL' },
     { value: 'json', label: 'JSON' },
   ];
   useEffect(() => {
-    EndpointRepository.getVoidData(endpoint.id).then((res) => {
+    if(endpoint === undefined){
+      navigate('/discoverability')
+    }
+     EndpointRepository.getVoidData(endpoint?.id).then((res) => {
       setRowResults(res.data);
     });
   }, []);
 
   const generateVoid = () => {
-    EndpointRepository.downloadVoid(endpoint.id, mime).then((res) => {
+    EndpointRepository.downloadVoid(endpoint?.id, mime).then((res) => {
       if (mime === 'json')
         fileDownload(JSON.stringify(res.data, null, 2), `${endpoint.name}-void.${mime}`, mime);
-      else fileDownload(res.data, `${endpoint.name}-void.${mime}`);
+      else fileDownload(res.data, `${endpoint?.name}-void.${mime}`);
     });
   };
 
   const handleChange = (e) => {
     const { value } = e.target;
-    console.log('meme => ', mime);
     setMime(value);
   };
 
@@ -146,7 +150,7 @@ const VoidStatistics = ({ endpoint }) => {
               </Box>
             </Box>
             <Typography variant="h6">Relation speciality</Typography>
-            <Chip label={endpoint.relationSpeciality} color="info"/>
+            <Chip label={endpoint?.relationSpeciality} color="info"/>
           </Box>
         </Paper>
       </Grid>

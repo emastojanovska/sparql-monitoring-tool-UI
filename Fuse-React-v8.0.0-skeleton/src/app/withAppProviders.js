@@ -8,7 +8,8 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { StyledEngineProvider } from '@mui/material/styles';
 import routes from 'app/configs/routesConfig';
-import store from './store';
+import {PersistGate} from "redux-persist/integration/react";
+import store, {persistor} from './store';
 import AppContext from './AppContext';
 
 const withAppProviders = (Component) => (props) => {
@@ -20,9 +21,11 @@ const withAppProviders = (Component) => (props) => {
     >
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <Provider store={store}>
-          <StyledEngineProvider injectFirst>
-            <Component {...props} />
-          </StyledEngineProvider>
+          <PersistGate persistor={persistor}>
+            <StyledEngineProvider injectFirst>
+              <Component {...props} />
+            </StyledEngineProvider>
+          </PersistGate>
         </Provider>
       </LocalizationProvider>
     </AppContext.Provider>

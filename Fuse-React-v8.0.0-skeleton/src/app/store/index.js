@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import createReducer from './rootReducer';
+import { persistStore } from "redux-persist";
+import createReducer, {persistConfig, persistedReducer} from './rootReducer';
+import persistReducer from "redux-persist/es/persistReducer";
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
   module.hot.accept('./rootReducer', () => {
@@ -18,7 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const store = configureStore({
-  reducer: createReducer(),
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       immutableCheck: false,
@@ -26,7 +28,7 @@ const store = configureStore({
     }).concat(middlewares),
   devTools: process.env.NODE_ENV === 'development',
 });
-
+export const persistor = persistStore(store);
 store.asyncReducers = {};
 
 export const injectReducer = (key, reducer) => {
@@ -34,7 +36,7 @@ export const injectReducer = (key, reducer) => {
     return false;
   }
   store.asyncReducers[key] = reducer;
-  store.replaceReducer(createReducer(store.asyncReducers));
+  store.replaceReducer(persistReducer(persistConfig, createReducer(store.asyncReducers)));
   return store;
 };
 
