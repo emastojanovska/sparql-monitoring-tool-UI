@@ -4,16 +4,13 @@ import Button from "@mui/material/Button";
 import { useDispatch } from 'react-redux';
 import Delete from "@mui/icons-material/Delete";
 import RemoveEndpointModal from "../../main/components/RemoveEndpointModal";
+import EditEndpointModal from "../../main/components/EditEndpointModal";
 
 
 function PageTableBody(props) {
   const dispatch = useDispatch();
 
   const [showAllItems, setShowAllItems] = React.useState(true);
-
-  const deleteItem = id => {
-    props.linkDelete(id)
-  }
 
   const handleShowAllItems = (id) => {
     // eslint-disable-next-line no-unused-expressions
@@ -131,6 +128,12 @@ function PageTableBody(props) {
                   {value.type === "remove-endpoint" && (
                       <TableCell>
                         <RemoveEndpointModal id={row.id}/>
+                      </TableCell>
+                  )}
+
+                  {value.type === "edit-endpoint" && (
+                      <TableCell>
+                        <EditEndpointModal id={row.id}/>
                       </TableCell>
                   )}
                 </React.Fragment>

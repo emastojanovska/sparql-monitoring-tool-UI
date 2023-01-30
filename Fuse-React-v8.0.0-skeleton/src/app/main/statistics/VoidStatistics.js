@@ -150,7 +150,7 @@ const VoidStatistics = ({ endpoint }) => {
               </Box>
             </Box>
             <Typography variant="h6">Relation speciality</Typography>
-            <Chip label={endpoint?.relationSpeciality} color="info"/>
+            <Chip label={endpoint?.relationSpeciality.toFixed(2)} color="info"/>
           </Box>
         </Paper>
       </Grid>

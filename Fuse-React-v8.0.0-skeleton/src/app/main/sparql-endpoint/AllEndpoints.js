@@ -42,12 +42,16 @@ const AllEndpoints = ({endpointsList}) => {
             label: "",
             sort: false,
         },
+        {
+            id: "editEndpoint",
+            align: "left",
+            disablePadding: false,
+            label: "",
+            sort: false,
+        },
 
     ]
 
-    const getLinkDelete = (id) => {
-        dispatch(removeEndpoint(id))
-    }
     const dataRows = endpointsList.map(endpoint => {
         return{
             id: endpoint.id,
@@ -80,6 +84,11 @@ const AllEndpoints = ({endpointsList}) => {
                     type: "remove-endpoint",
                     name: "removeEndpoint",
                     id: "removeEndpoint",
+                },
+                {
+                    type: "edit-endpoint",
+                    name: "editEndpoint",
+                    id: "editEndpoint",
                 }
             ]
         }
@@ -104,7 +113,6 @@ const AllEndpoints = ({endpointsList}) => {
                             headerRows={headerRows}
                             rows={dataRows}
                             clickable={false}
-                            linkDelete={getLinkDelete}
                             link="all-endpoints"
                         />
                     )                    }

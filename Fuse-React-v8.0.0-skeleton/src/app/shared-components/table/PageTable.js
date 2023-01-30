@@ -15,7 +15,6 @@ function PageTable(props) {
                     </TableHead>
                     <PageTableBody rows={props.rows}
                                    link={props.link}
-                                   linkDelete={props.linkDelete}
                                    clickable={props.clickable}
                                    data={props.data}
                     />

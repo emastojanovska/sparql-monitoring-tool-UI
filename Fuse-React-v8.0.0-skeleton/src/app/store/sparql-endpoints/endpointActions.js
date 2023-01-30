@@ -20,3 +20,8 @@ export const setEndpoint = item =>({
     type: EndpointTypes.SET_ENDPOINT,
     payload: item
 });
+
+export const editEndpoint = item =>({
+    type: EndpointTypes.EDIT_ENDPOINT,
+    payload: item
+});

@@ -9,6 +9,10 @@ const EndpointRepository = {
         return axios.post('/endpoints/create', dto)
     },
 
+    editEndpoint: (dto) => {
+        return axios.post(`/endpoints/edit/${dto.id}?endpointName=${dto.name}`)
+    },
+
     removeEndpoint: (dto) => {
         return axios.post(`/endpoints/remove`, dto)
     },

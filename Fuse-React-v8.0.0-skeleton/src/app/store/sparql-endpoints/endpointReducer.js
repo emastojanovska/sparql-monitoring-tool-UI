@@ -1,5 +1,5 @@
 import EndpointTypes from "app/store/sparql-endpoints/endpointTypes";
-import {addEndpoint, removeEndpoint} from "app/store/sparql-endpoints/endpointUtils";
+import {addEndpoint, editEndpoint, removeEndpoint} from "app/store/sparql-endpoints/endpointUtils";
 
 const INITIAL_STATE = {
     endpointsList: [],
@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 const EndpointReducer = (state = INITIAL_STATE, action) =>{
     switch(action.type){
         case EndpointTypes.SET_ALL: return{
-            endpointsList: action.payload,
+            endpointsList: action.payload.sort((a,b) => a.id > b.id ? 1 : -1),
             hasVoid: action.payload.map(x => x.voID).filter(x => x===true).length,
             noVoid: action.payload.map(x => x.voID).filter(x => x===false).length
         }
@@ -26,6 +26,10 @@ const EndpointReducer = (state = INITIAL_STATE, action) =>{
         case EndpointTypes.REMOVE_ENDPOINT: return{
             ...state,
             endpointsList: removeEndpoint(state.endpointsList, action.payload)
+        };
+        case EndpointTypes.EDIT_ENDPOINT: return{
+            ...state,
+            endpointsList: editEndpoint(state.endpointsList, action.payload)
         };
         default: return state;
     }
