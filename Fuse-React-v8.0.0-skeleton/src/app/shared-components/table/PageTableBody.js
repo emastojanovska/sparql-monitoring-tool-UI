@@ -2,7 +2,6 @@ import {Icon, IconButton, TableBody, TableCell, TableRow, Tooltip} from "@mui/ma
 import React from "react";
 import Button from "@mui/material/Button";
 import { useDispatch } from 'react-redux';
-import Delete from "@mui/icons-material/Delete";
 import RemoveEndpointModal from "../../main/components/RemoveEndpointModal";
 import EditEndpointModal from "../../main/components/EditEndpointModal";
 

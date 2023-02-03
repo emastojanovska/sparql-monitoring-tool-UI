@@ -9,9 +9,9 @@ import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import { withStyles } from '@material-ui/core/styles';
+import Chip from '@mui/material/Chip';
+import { useNavigate } from 'react-router-dom';
 import EndpointRepository from '../../repository/EndpointRepository';
-import Chip from "@mui/material/Chip";
-import {useNavigate} from "react-router-dom";
 
 const BorderLinearProgress = withStyles((theme) => ({
   root: {
@@ -30,17 +30,17 @@ const VoidStatistics = ({ endpoint }) => {
   const [rowResults, setRowResults] = useState([]);
   const fileDownload = require('js-file-download');
   const [mime, setMime] = useState('rdf');
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const options = [
     { value: 'rdf', label: 'RDF/XML' },
     { value: 'ttl', label: 'TTL' },
     { value: 'json', label: 'JSON' },
   ];
   useEffect(() => {
-    if(endpoint === undefined){
-      navigate('/discoverability')
+    if (endpoint === undefined) {
+      navigate('/discoverability');
     }
-     EndpointRepository.getVoidData(endpoint?.id).then((res) => {
+    EndpointRepository.getVoidData(endpoint?.id).then((res) => {
       setRowResults(res.data);
     });
   }, []);
@@ -132,25 +132,25 @@ const VoidStatistics = ({ endpoint }) => {
         ) : (
           'The VoID file takes time to be generated ...'
         )}
-       <Paper elevation={3} sx={{minHeight: '200px', marginRight: 2}}>
-          <Box sx={{margin: 2}}>
+        <Paper elevation={3} sx={{ minHeight: '200px', marginRight: 2 }}>
+          <Box sx={{ margin: 2 }}>
             <Typography variant="h6">Coherence</Typography>
             <Box display="flex" alignItems="center">
               <Box width="100%" mr={1}>
                 <BorderLinearProgress
-                    variant="determinate"
-                    color="info"
-                    value={endpoint?.coherence * 100}
+                  variant="determinate"
+                  color="info"
+                  value={endpoint?.coherence * 100}
                 />
               </Box>
               <Box minWidth={35}>
                 <Typography variant="body2" color="textSecondary">{`${Math.round(
-                    endpoint?.coherence * 100
+                  endpoint?.coherence * 100
                 )}%`}</Typography>
               </Box>
             </Box>
             <Typography variant="h6">Relation speciality</Typography>
-            <Chip label={endpoint?.relationSpeciality.toFixed(2)} color="info"/>
+            <Chip label={endpoint?.relationSpeciality.toFixed(2)} color="info" />
           </Box>
         </Paper>
       </Grid>
