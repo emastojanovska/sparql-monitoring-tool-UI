@@ -2,7 +2,7 @@ version: '3'
 
 services:
   web:
-    image: $CONTAINER_IMAGE
+    image: sparql_monitoring_tool_ui
     deploy:
       restart_policy:
         condition: any
